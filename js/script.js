@@ -1,5 +1,7 @@
 // Globala variabler
-
+var inp1Elem;
+var inp2Elem;
+var msgElem;
 
 // --------------------------------------------------
 // Initiering av globala variabler och händelsehanterare
