@@ -14,9 +14,8 @@ function init() {
 } // Slut init
 window.onload = init; // Se till att init aktiveras då sidan är inladdad
 // --------------------------------------------------
-
 function showFruit () {
-    let nr = Number(inp1Elem.value); // För att avläsa fruktens tal från input 1
+    let nr = Number(inp1Elem.value); // För att läsa av fruktens tal från input 1
     let url; // Bild url
     switch (nr) {
         case 1: url = "img/apple.png"; break;
