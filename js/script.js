@@ -1,6 +1,6 @@
 // Globala variabler
-var inp1Elem;       // Referens till textfält för input
-var inp2Elem;       // Referens till textfält för input
+var inp1Elem;       // Referering till inmatning i textfältet
+var inp2Elem;       // Referering till inmatning i textfältet
 var msgElem;        // Referens till div
 
 // --------------------------------------------------
@@ -14,6 +14,7 @@ function init() {
 } // Slut init
 window.onload = init; // Se till att init aktiveras då sidan är inladdad
 // --------------------------------------------------
+// Start av första uppgiften
 function showFruit () {
     let nr = Number(inp1Elem.value); // För att läsa av fruktens tal från input 1
     let url; // Bild url
@@ -27,3 +28,19 @@ function showFruit () {
     }
     document.getElementById("fruitImg").src = url;
 } // Slut showFruit
+
+// --------------------------------------------------
+function getInput (elem, high) {
+    let nr = Number(elem.value);
+    
+    if (isNaN(nr)) {
+        msgElem.innerHTML = "Du måste skriva ett tal med siffror";
+        return -1;
+    }
+    return nr; 
+} // Slut getInput
+
+function showFruit (){
+    let nr = getInput(inp1Elem, 5)
+    if (nr == -1) return;
+}
