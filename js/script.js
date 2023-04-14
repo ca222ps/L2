@@ -16,7 +16,8 @@ window.onload = init; // Se till att init aktiveras då sidan är inladdad
 // --------------------------------------------------
 // Start av första uppgiften
 function showFruit () {
-    let nr = Number(inp1Elem.value); // För att läsa av fruktens tal från input 1
+    let nr = getInput(inp1Elem, 5); // Anropning
+    if (nr == -1) return;
     let url; // Bild url
     switch (nr) {
         case 1: url = "img/apple.png"; break;
@@ -30,17 +31,20 @@ function showFruit () {
 } // Slut showFruit
 
 // --------------------------------------------------
-function getInput (elem, high) {
-    let nr = Number(elem.value);
+function getInput (elem, high) { // Lokala variabler
+    msgElem.innerHTML = ""; // Tar bort kvarliggande felmeddelande
+    let nr = Number(elem.value); // Avläsning av textfält
     
-    if (isNaN(nr)) {
+    if (isNaN(nr)) { // Kontroll av tal
         msgElem.innerHTML = "Du måste skriva ett tal med siffror";
-        return -1;
+        return -1; // Returnera vid fel
     }
-    return nr; 
+
+    if (nr < 1 || nr > high) { // Kontroll av tal utanför intervall
+        msgElem.innerHTML = "Du måste skriva ett tal mellan 1 och " + high;
+        return - 1; // Avbryt funktion om tal utanför intervall
+    }
+
+    return nr; // Returnera avläst nummer
 } // Slut getInput
 
-function showFruit (){
-    let nr = getInput(inp1Elem, 5)
-    if (nr == -1) return;
-}
