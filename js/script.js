@@ -2,7 +2,7 @@
 var inp1Elem;       // Referering till inmatning i textfältet
 var inp2Elem;       // Referering till inmatning i textfältet
 var msgElem;        // Referens till div
-var selFruitNr;     // Nummer på vald frukt!!!
+var selFruitNr;     // Vilken vald frukt 
 
 // --------------------------------------------------
 // Initiering av globala variabler och händelsehanterare
@@ -18,7 +18,7 @@ function init() {
 window.onload = init; // Se till att init aktiveras då sidan är inladdad
 
 // --------------------------------------------------
-// Start av första uppgiften
+// Start avläsning andra textfältet
 function showFruit () {
     let nr = getInput(inp1Elem, 5); // Anropning av getInput
     if (nr == -1) return;
@@ -28,6 +28,7 @@ function showFruit () {
 } // Slut showFruit
 
 // --------------------------------------------------
+// Kontroll av siffror mellan 1 och 5
 function getInput (elem, high) { // Lokala variabler
     msgElem.innerHTML = ""; // Tar bort kvarliggande felmeddelande
     let nr = Number(elem.value); // Avläsning av textfält
@@ -48,6 +49,8 @@ function getInput (elem, high) { // Lokala variabler
     return nr; // Returnera avläst nummer
 } // Slut getInput
 
+// --------------------------------------------------
+// Funktion för båda textfält för översättning av bildnummer
 function getUrl(nr) {
     let url; // Bild url
     switch (nr) {
@@ -61,25 +64,24 @@ function getUrl(nr) {
     return url;
 } // Slut getUrl
 
+// --------------------------------------------------
+// Start avläsning andra textfältet
 function addFruits() {
-/* egenskapad kod, troligen fel */
     let imgList = "";
-    let nr = getUrl (selFruitNr);
-    let fruitUrl;
+    let fruitUrl = getUrl (selFruitNr);
 
-/* kopierad kod, felmeddelande */
+let amount = getInput(inp2Elem, 9); {
+    if (amount == -1) return;
+
+    }
     for (let i = 0; i < amount; i++) {
         imgList += "<img src='" + fruitUrl + "' alt='frukt'>";
     }
-    document.getElementById("selectedFruits").innerHTML += imgList;
+    document.getElementById("selectedFruits").innerHTML += imgList; 
+    // Utbyggande av fler frukter
 
-    if (selFruit == 0) {
+    if (selFruit == 0) { // Kontroll av antal frukter
     msgElem.innerHTML = "Du måste först välja en frukt";
     return;
     }
-
-    let amount = getInput(inp2Elem, 9); {
-    if (amount == -1) return;
-    }
-
 } // Slut addFruits
